@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Eliott — Freelance UI/UX Designer and Frontend Developer. Fast, clean and accessible digital products.">
+  <meta name="keywords" content="freelance developer, UI designer, portfolio, Bootstrap">
+  <meta name="author" content="Eliott">
+  <title>Eliott — Freelance UI/UX Designer &amp; Frontend Dev</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --accent: #FF6B2B;
+      --accent-light: #FF8F5C;
+      --bs-body-font-family: 'DM Sans', sans-serif;
+      --bs-font-sans-serif: 'DM Sans', sans-serif;
+    }
+
+    [data-bs-theme="dark"] {
+      --bs-body-bg: #0d0d0f;
+      --bs-body-color: #e5e5e5;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .font-display {
+      font-family: 'PT Sans', sans-serif;
+    }
+
+    body {
+      transition: background-color .3s, color .3s;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .text-accent {
+      color: var(--accent) !important;
+    }
+
+    .bg-accent {
+      background-color: var(--accent) !important;
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-accent:hover {
+      background-color: var(--accent-light);
+      border-color: var(--accent-light);
+      color: #fff;
+    }
+
+    .btn-outline-accent {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-outline-accent:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    .eyebrow {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    a.nav-link {
+      position: relative;
+    }
+
+    a.nav-link.active,
+    a.nav-link:hover {
+      color: var(--accent) !important;
+    }
+
+    .card-hover {
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent) !important;
+    }
+
+    .badge-soft {
+      background-color: rgba(255, 107, 43, .1);
+      color: var(--accent);
+      border: 1px solid rgba(255, 107, 43, .25);
+    }
+
+    [data-bs-theme="dark"] .card,
+    [data-bs-theme="dark"] .bg-body-tertiary {
+      background-color: #18181b !important;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: .35;
+      z-index: 0;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-frame {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 1.5rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 99px;
+    }
+
+    .navbar-blur {
+      backdrop-filter: blur(10px);
+      background-color: rgba(var(--bs-body-bg-rgb, 255, 255, 255), .85);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-blur border-bottom" style="border-color:var(--bs-border-color)">
+    <div class="container">
+      <a class="navbar-brand fw-bold font-display fs-4" href="#top">G<span class="text-accent">P</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#work">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blog">Education</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="https://wa.me/916263462224" class="btn btn-accent btn-sm rounded-pill px-3"><i
+                class="bi bi-whatsapp"></i></a>
+          </li>
+          <li class="nav-item ms-lg-1">
+            <button id="themeToggle" class="btn btn-sm btn-outline-secondary rounded-circle ms-2"
+              title="Toggle dark mode" style="width:36px;height:36px;">
+              <i class="bi bi-moon-stars"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <header id="top" class="pt-5 mt-5 pb-5 overflow-hidden"></header>
+  <div class="hero-blob bg-accent" style="width:420px;height:420px;top:-120px;right:-140px;"></div>
+  <div class="container py-5">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-7">
+        <p class="eyebrow mb-3 reveal">Open to work</p>
+        <h1 class="display-3 fw-bold font-display mb-4 reveal">Hi, I'm <span class="text-accent">Gajanan</span></h1>
+        <p class="fs-5 text-secondary fw-light mb-4 reveal" style="max-width:32rem;">
+          <strong class="fw-medium">Software Developer</strong>. I design and build digital products that people love
+          to use — fast, clean, and accessible.
+        </p>
+        <div class="d-flex flex-wrap gap-3 reveal">
+          <a href="#work" class="btn btn-accent btn-lg rounded-pill px-4">View my work</a>
+          <a href="#contact" class="btn btn-outline-secondary btn-lg rounded-pill px-4">Get in touch</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <img src="WhatsApp Image 2026-07-12 at 2.38.43 PM.jpeg" alt="Eliott" class="avatar-frame shadow-lg reveal"
+          loading="lazy">
+      </div>
+    </div>
+  </div>
+  </header>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section id="services" class="py-5 bg-body-tertiary">
+    <div class="container py-5">
+      <h2 class="font-display fw-bold display-6 mb-5">Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 card-hover">
+            <div class="d-flex align-items-center justify-content-center rounded-3 mb-4 badge-soft"
+              style="width:3rem;height:3rem;">
+              <i class="bi bi-cup-hot"></i>
+            </div>
+            <h3 class="font-display fw-bold h4">Java Development</h3>
+            <p class="text-secondary small mb-0">Develop secure and efficient java applications using core java, OOPs
+              and JDBC.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 card-hover">
+            <div class="d-flex align-items-center justify-content-center rounded-3 mb-4 badge-soft"
+              style="width:3rem;height:3rem;">
+              <i class="bi bi-rocket-takeoff"></i>
+            </div>
+            <h3 class="font-display fw-bold h4">Spring-boot APIs</h3>
+            <p class="text-secondary small mb-0">Create RESTful APIs with spring boot, spring data, JPA, and Hibernate.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 card-hover">
+            <div class="d-flex align-items-center justify-content-center rounded-3 mb-4 badge-soft"
+              style="width:3rem;height:3rem;">
+              <i class="bi bi-code-slash"></i>
+            </div>
+            <h3 class="font-display fw-bold h4">Frontend Development</h3>
+            <p class="text-secondary small mb-0">Develop responsive user interfaces using HTML, CSS, Bootstrap,
+              JavaScript, And Angular.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 card-hover">
+            <div class="d-flex align-items-center justify-content-center rounded-3 mb-4 badge-soft"
+              style="width:3rem;height:3rem;">
+              <i class="bi bi-database-fill-gear"></i>
+            </div>
+            <h3 class="font-display fw-bold h4">Database Design</h3>
+            <p class="text-secondary small mb-0">Design and Manage MySQL and PostgreSQL Database with optimized queries.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 card-hover">
+            <div class="d-flex align-items-center justify-content-center rounded-3 mb-4 badge-soft"
+              style="width:3rem;height:3rem;">
+              <i class="bi bi-stack"></i>
+            </div>
+            <h3 class="font-display fw-bold h4">Full Stack Projects</h3>
+            <p class="text-secondary small mb-0">Build complete web applicationsusing java, Spring boot, Angular and
+              PostgreSQL.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border p-4 card-hover">
+            <div class="d-flex align-items-center justify-content-center rounded-3 mb-4 badge-soft"
+              style="width:3rem;height:3rem;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <h3 class="font-display fw-bold h4">Responsive Websites</h3>
+            <p class="text-secondary small mb-0">Create fast, mobile-friendly and user-friendly websites that work on
+              all devices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WORK ═══ -->
+  <section id="work" class="py-5">
+    <div class="container py-5">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-5 gap-3">
+        <div>
+          <h2 class="font-display fw-bold display-6 mb-5">Projects</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <article class="card h-100 border card-hover overflow-hidden">
+            <img src="dashbord.png" class="card-img-top" style="height:280px;object-fit:cover;"
+              alt="Novu SaaS Dashboard" loading="lazy">
+            <div class="card-body p-4">
+              <h3 class="font-display fw-bold h4">NBFC Dashbord</h3>
+              <p class="text-secondary small">Total Customers | Total Agents | Total Loans | Pending Loans | Approved
+                Loans | Daily Collection | Monthly Collection | Wallet Balance | EMI & Payment Reports.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-4 h-100">
+            <div class="col-12">
+              <article class="card border card-hover overflow-hidden flex-md-row">
+                <div class="row g-0">
+                  <div class="col-4">
+                    <img src="Event.png" class="w-100 h-100" style="object-fit:cover;" alt="Finlo Fintech App"
+                      loading="lazy">
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body p-4">
+
+                      <h3 class="font-display fw-bold h5 mb-1">Event Management System</h3>
+                      <p class="text-secondary small mb-1">A web-based platform for event registration, booking,
+                        customer management, and admin dashboard using HTML, CSS, Bootstrap, JavaScript, PHP, and MySQL.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12">
+              <article class="card border card-hover overflow-hidden">
+                <div class="row g-0">
+                  <div class="col-4">
+                    <img
+                      src="https://s3-alpha.figma.com/hub/file/3774282612/a09c7050-8598-48f8-8b8b-cd4d242d6338-cover.png"
+                      class="w-100 h-100" style="object-fit:cover;" alt="Orea Creative Agency" loading="lazy">
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body p-4">
+                      <h3 class="font-display fw-bold h5 mb-1">E Commerce</h3>
+                      <p class="text-secondary small mb-1">A responsive online shopping platform with product browsing,
+                        search, cart, user registration, order management, and secure checkout using HTML, CSS,
+                        Bootstrap, JavaScript, and MySQL.</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="py-5 bg-body-tertiary">
+    <div class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 order-2 order-lg-1">
+          <img src="WhatsApp Image 2026-07-12 at 2.38.43 PM.jpeg" class="avatar-frame shadow-sm" alt="Eliott"
+            loading="lazy">
+        </div>
+        <div class="col-lg-7 order-1 order-lg-2">
+          <h2 class="font-display fw-bold display-6 mb-4 text-accent">About me</h2>
+          <p class="text-secondary mb-3">I'm Gajanan Patil, an MCA student and aspiring Full Stack Developer. I build
+            responsive web applications using Java, Spring Boot, Angular, HTML, CSS, JavaScript, and PostgreSQL. I'm
+            passionate about learning new technologies, solving real-world problems, and creating clean, efficient
+            software.</p>
+          <p class="text-uppercase small fw-medium text-secondary mb-2" style="letter-spacing:.1em;">Technologies</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge rounded-pill border text-body px-3 py-2">Bootstrap 5</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">JavaScript</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">Angular</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">HTML / CSS</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">java</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">Spring-boot</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">SQL</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">OOPS</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">REST APIs</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">Microservices</span>
+          </div><br>
+          <div>
+            <p class="text-uppercase small fw-medium text-secondary mb-2" style="letter-spacing:.1em;">
+              tools</p>
+            <span class="badge rounded-pill border text-body px-3 py-2">Git</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">GitHub</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">Eclipse</span>
+            <span class="badge rounded-pill border text-body px-3 py-2">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section id="reviews" class="py-5">
+    <div class="container py-6">
+      <h2 class="font-display fw-bold display-6 mb-5">Experience</h2>
+      <p class="eyebrow mb-2">Internship</p>
+      <div class="row g-4">
+        <div class="col-md-8">
+          <blockquote class="card h-100 border p-4 mb-0">
+            <div class="text-accent mb-3">
+              <h4 class="fw-bold mb-1 text-white">Software Developer Intern</h4>
+              <h5 class="text-accent">Cravita technologies</h5>
+            </div>
+            <p><i class="bi bi-circle me-2"></i> As an Intern Jr. Software Engineer, I’ll be diving into various
+              exciting projects and gaining hands-on experience in Full Stack
+              Web Applications development. During my internship at Cravita Technologies, I worked on Java Full Stack
+              development projects using Java, Spring Boot, Angular, HTML, CSS, Bootstrap, JavaScript, Hibernate, and
+              PostgreSQL. I developed REST APIs, implemented CRUD operations, integrated frontend and backend modules,
+              fixed bugs, tested applications, and collaborated with the development team using Git and Agile
+              methodologies.</p>
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOG ═══ -->
+  <section id="blog" class="py-5 bg-body-tertiary">
+    <div class="container py-5">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-5 gap-3">
+        <div>
+
+          <h2 class="font-display fw-bold display-6 mb-0">Education</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <article class="card h-100 border card-hover overflow-hidden">
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <i class="bi bi-mortarboard"></i>
+                <span class="text-secondary small">2025 - Present</span>
+              </div>
+              <h3 class="font-display fw-bold h6">Master of Computer Applications (MCA)</h3>
+              <p class="text-secondary small mb-2">Godavari Institute of Management & Research, Jalgoan</p>
+              <p class="text-secondary small mb-2">North Maharashtra University</p>
+              <p class="text-bold small mb-2">Currently learning Artifial intelligence, machine learning, Docker,
+                Microservices etc.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <article class="card h-100 border card-hover overflow-hidden">
+
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <i class="bi bi-mortarboard"></i>
+                <span class="text-secondary small">2021 - 2024</span>
+              </div>
+              <h3 class="font-display fw-bold h6">Bachelor of Computer Applications (BCA)</h3>
+              <p class="text-secondary small mb-2">Sant Muktai college, Muktainagar</p>
+              <p class="text-secondary small mb-2">North Maharashtra University</p>
+              <p class="text-bold small mb-2">Studied Core Java, Web development, Spring-boot, Database Management etc.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="py-5">
+    <div class="container py-5">
+      <div class="rounded-4 p-4 p-md-5 position-relative overflow-hidden text-white" style="background-color:#18181b;">
+        <div class="hero-blob bg-accent" style="width:260px;height:260px;top:-60px;right:-60px;opacity:.25;"></div>
+        <div class="row g-5 position-relative">
+          <div class="col-lg-5">
+            <h2 class="font-display fw-bold display-6 mb-3">Contact Me</h2>
+            <p class="text-secondary mb-4">I'm actively looking for Software Developer opportunities. Feel free get in
+              touch!</p>
+          </div>
+          <div class="col-lg-5 ">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="d-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10"
+                style="width:36px;height:36px;"><i class="bi bi-envelope"></i></span>
+              <span class="small"><a href="mailto:gajananpatil9589@gmail.com">gajananpatil9589@gmail.com</a></span>
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="d-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10"
+                style="width:36px;height:36px;"><i class="bi bi-telephone"></i></span>
+              <span class="small">+91 6263462224</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <span class="d-flex align-items-center justify-content-center rounded-circle bg-white bg-opacity-10"
+                style="width:36px;height:36px;"><i class="bi bi-geo-alt"></i></span>
+              <span class="small">Pune, Maharashtra</span>
+            </div><br><br>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="text-secondary"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="py-4 border-top">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p class="small text-secondary mb-0">&copy; 2026 Gajanan. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark mode toggle
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    function setTheme(t) {
+      html.setAttribute('data-bs-theme', t);
+      icon.className = t === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars';
+      localStorage.setItem('theme', t);
+    }
+    setTheme(localStorage.getItem('theme') || 'light');
+    themeToggle.addEventListener('click', () => {
+      setTheme(html.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Smooth scroll + active nav link on click (collapse navbar on mobile)
+    document.querySelectorAll('#navMenu .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const collapse = bootstrap.Collapse.getInstance(document.getElementById('navMenu'));
+        if (collapse) collapse.hide();
+      });
+    });
+  </script>
+</body>
+
+</html>
